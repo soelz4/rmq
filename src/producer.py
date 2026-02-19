@@ -2,10 +2,9 @@ import pika
 import os
 from dotenv import load_dotenv
 
-# 1. Load environment variables from .env file
 load_dotenv()
 
-# 2. Get variables (good practice to set defaults or handle missing vars)
+# env vars
 amqp_host = os.getenv("RABBITMQ_HOST")
 amqp_port = int(os.getenv("RABBITMQ_PORT"))  # Convert string to int
 amqp_user = os.getenv("RABBITMQ_USER")
