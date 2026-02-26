@@ -2,7 +2,6 @@ import pika
 import os
 from dotenv import load_dotenv
 
-# 1. Load environment variables
 load_dotenv()
 
 
@@ -10,7 +9,7 @@ def on_msg_received(ch, method, properties, body):
     print(f"received new msg: {body}")
 
 
-# 2. Get variables from .env
+# env vars
 amqp_host = os.getenv("RABBITMQ_HOST")
 amqp_port = int(os.getenv("RABBITMQ_PORT"))
 amqp_user = os.getenv("RABBITMQ_USER")
@@ -27,7 +26,6 @@ connection = pika.BlockingConnection(connection_params)
 channel = connection.channel()
 
 # queue
-# Note: Ensure this queue name matches your producer (e.g., "letterbox" vs "letter-box")
 channel.queue_declare(queue="letter-box")
 
 # consume
