@@ -26,7 +26,6 @@ connection = pika.BlockingConnection(connection_params)
 channel = connection.channel()
 
 # queue
-# Note: Ensure this queue name matches your producer (e.g., "letterbox" vs "letter-box")
 channel.queue_declare(queue="letter-box")
 
 # consume
